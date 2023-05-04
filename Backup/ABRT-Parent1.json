@@ -88,6 +88,40 @@
         {
             "type": "Microsoft.Authorization/roleDefinitions",
             "apiVersion": "2018-07-01",
+            "name": "[guid(subscription().id, variables('rbac').psDeploy.name)]",
+            "properties": {
+                "roleName": "[variables('rbac').psDeploy.name]",
+                "description": "[variables('rbac').psDeploy.description]",
+                "type": "customRole",
+                "permissions": [
+                    {
+                        "Actions": [
+                            "Microsoft.Authorization/*/read",
+                            "Microsoft.Insights/alertRules/*",
+                            "Microsoft.Network/*",
+                            "Microsoft.ResourceHealth/availabilityStatuses/read",
+                            "Microsoft.Resources/deployments/*",
+                            "Microsoft.Resources/subscriptions/resourceGroups/read",
+                            "Microsoft.Authorization/*/read",
+                            "Microsoft.Insights/alertRules/*",
+                            "Microsoft.Insights/diagnosticSettings/*",
+                            "Microsoft.Network/virtualNetworks/subnets/joinViaServiceEndpoint/action",
+                            "Microsoft.ResourceHealth/availabilityStatuses/read",
+                            "Microsoft.Resources/deployments/*",
+                            "Microsoft.Resources/subscriptions/resourceGroups/read",
+                            "Microsoft.Storage/storageAccounts/*"
+                        ],
+                        "NotActions": []
+                     }
+                ],
+                "assignableScopes": [
+                    "[subscription().id]"
+                ]
+            }
+        },
+        {
+            "type": "Microsoft.Authorization/roleDefinitions",
+            "apiVersion": "2018-07-01",
             "name": "[guid(subscription().id, variables('rbac').testRestore.name)]",
             "properties": {
                 "roleName": "[variables('rbac').testRestore.name]",
