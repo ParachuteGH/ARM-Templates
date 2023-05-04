@@ -28,7 +28,7 @@
         "resourceGroups":{
             "testRestore":{
                 "name": "[concat(toupper(parameters('customerPrefix')),'-Test-Restore')]",
-                "location": "WestUS2",
+                "location": "WestUS3",
                 "role": "Test Azure Backups",
                 "cost": "Backup"
             }
